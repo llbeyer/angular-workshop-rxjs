@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl} from "@angular/forms";
-import {debounceTime, map, tap} from "rxjs";
 
 @Component({
   selector: 'app-aufgabe-vier',
@@ -26,16 +25,6 @@ export class AufgabeVierComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.formControl.valueChanges
-      .pipe(
-        debounceTime(350),
-        map(searchTerm => this.values
-          .slice()
-          .filter(value => value.includes(searchTerm))
-        ),
-        tap(values => console.log(values)),
-      )
-      .subscribe();
   }
 
 }
